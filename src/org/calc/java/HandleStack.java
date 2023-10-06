@@ -1,17 +1,23 @@
 package org.calc.java;
 import java.util.Stack;
-
 import java.io.IOException;
 
 public class HandleStack {
     public static boolean handlePredefEquation(String equation) throws IOException {
 
         switch (equation) {
-            case "mfd0", "mfd1", "mfd2" -> {System.out.printf("The magnetic flux density is "
+            case "mfd0", "mfd1", "mfd2" -> {
+                System.out.printf("The magnetic flux density is "
                     + EquationList.LoadMFD(equation.charAt(equation.length() - 1))
                     + (equation.charAt(equation.length() - 1) == '0' ? "T\n"
                     : (equation.charAt(equation.length() - 1) == '1' ? "m\n" : "A\n")));
-                    return true; }
+                return true; }
+            case "spd0" -> {
+                System.out.println("The speed is " + EquationList.speed(equation.charAt(equation.length() - 1)) + "m/s");
+                return  true; }
+            case "mas0" -> {
+                System.out.println("The density of the object is " + EquationList.mass(equation.charAt(equation.length() - 1)) + " kg/m^3");
+                return true; }
             default -> {
                 return false;
             }
@@ -21,7 +27,6 @@ public class HandleStack {
     public static double evaluate(String expression) {
         Stack<Double> operandStack = new Stack<>();
         Stack<Character> operatorStack = new Stack<>();
-        Stack<Double> constStack = new Stack<>();
 
         for (int i = 0; i < expression.length(); i++) {
             char currentChar = expression.charAt(i);
