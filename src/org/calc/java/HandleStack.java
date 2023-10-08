@@ -3,7 +3,7 @@ import java.util.Stack;
 import java.io.IOException;
 
 public class HandleStack {
-    public static boolean handlePredefEquation(String equation) throws IOException {
+    public static boolean handlePredefinedEquation(String equation) throws IOException {
 
         switch (equation) {
             case "mfd0", "mfd1", "mfd2" -> {
@@ -14,10 +14,17 @@ public class HandleStack {
                 return true; }
             case "spd0" -> {
                 System.out.println("The speed is " + EquationList.speed(equation.charAt(equation.length() - 1)) + "m/s");
-                return  true; }
+                return true; }
             case "mas0" -> {
                 System.out.println("The density of the object is " + EquationList.mass(equation.charAt(equation.length() - 1)) + " kg/m^3");
                 return true; }
+            case "sop0" -> {
+                System.out.println("The radius of the particle is " + EquationList.speedOfParticleInVacuum(equation.charAt(equation.length() - 1)) + " m");
+                return true; }
+            case "conv" -> {
+                System.out.println("Conversion is " + SimpleArithmetic.Convert());
+                return true;
+            }
             default -> {
                 return false;
             }
@@ -56,6 +63,14 @@ public class HandleStack {
                     case 'e' -> operandStack.push(Constants.e);
                     case 'p' -> { if(expression.length() >= i + 1 && expression.charAt(i + 1) == 'i') operandStack.push(Constants.pi); }
                     case '_' -> { if(expression.length() >= i + 1 && expression.charAt(i + 1) == 'm') operandStack.push(Constants.pico0); }
+//                    case 'l' -> { if(expression.charAt(i + 1) == '(') {
+//                        int j = i;
+//                        while (j < expression.length() && expression.charAt(j) != ')') {
+//                            j++;
+//                        }
+//                        operandStack.push(Math.log(Double.parseDouble(expression.substring(i, j))));
+//                        i = j;
+//                    }}
                 }
             }
         }
@@ -76,7 +91,7 @@ public class HandleStack {
     }
 
     private static boolean isConst(char c, char c1) {
-        return c == 'e' || (c == 'p' && c1 == 'i') || (c == '_' && c1 == 'm');
+        return c == 'e' || (c == 'p' && c1 == 'i') || (c == '_' && c1 == 'm')/* || c == 'l'*/;
     }
 
     private static int precedence(char operator) {

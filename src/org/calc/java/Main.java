@@ -37,7 +37,7 @@ public class Main {
 
         assert equation != null;
         //checks if the equation is a predefined equation and calls the relevant methods
-        if(HandleStack.handlePredefEquation(equation))
+        if(HandleStack.handlePredefinedEquation(equation))
             return; // If the equation was a predefined equation the program will stop here to avoid conflicts
                     // with the later methods that evaluate the equation
 

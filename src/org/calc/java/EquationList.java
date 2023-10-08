@@ -58,6 +58,26 @@ public class EquationList {
         return 0;
     }
 
+    public static double speedOfParticleInVacuum(char type) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        //F=ma^n
+        //QvB=mv^2/r
+        //r=mv/QB
+
+        switch (type){
+            //Orbit Size of electron
+            case '0' -> {
+                System.out.print("Input speed (v) : ");
+                double v = isExpression(reader.readLine());
+                System.out.print("Input the magnetic flux (B) : ");
+                double B = isExpression(reader.readLine());
+                return ((Constants.protonMass * v) / (Constants.protonCharge * B))/4; }
+            case '1' -> {}
+        }
+
+        return 0;
+    }
+
     public static double mass(char type) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         switch (type){

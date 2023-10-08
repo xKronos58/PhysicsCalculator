@@ -3,11 +3,31 @@ package org.calc.java;
 public class Constants {
 
     //region mathematicsConstants
-    public static final double pi = 3.141592653589793238462643383279; // Pi (π)
-    public static final double e =  2.718281828459045235360287471352; // used for calculating exponential.
+
+    /**
+     * Stores the value of pi (π)
+     * */
+    public static final double pi = 3.141592653589793238462643383279;
+
+    /**
+     * Stores the value of e, which is used for calculating exponential
+     * */
+    public static final double e =  2.718281828459045235360287471352;
 
 
     //region physicsConstants
-    public static final double pico0 = 0.00000125663766212; // Magnetic Constant inside a vacuum (µ0)
+    /**
+     * Magnetic Constant inside a vacuum (µ0)
+     * */
+    public static final double pico0 = 0.00000125663766212;
 
+    /**
+     * Mass of proton in Kg
+     * */
+    public static final double protonMass = 6.67262 * Math.pow(10, -27);
+
+    /**
+     * Charge of a proton in coulombs
+     * */
+    public static final double protonCharge = 1.602176634 * Math.pow(10, -19);
 }
