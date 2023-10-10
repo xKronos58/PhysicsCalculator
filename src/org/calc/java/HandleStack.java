@@ -25,6 +25,10 @@ public class HandleStack {
                 System.out.println("Conversion is " + SimpleArithmetic.Convert());
                 return true;
             }
+            case "tev0" -> {
+                System.out.println("The terminal velocity is " + EquationList.terminalVelocity());
+                return true;
+            }
             default -> {
                 return false;
             }

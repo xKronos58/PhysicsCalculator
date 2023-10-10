@@ -66,4 +66,9 @@ public class SimpleArithmetic /*This class name is a lie lol, it is the most com
                 (_validUnitsSubstance.contains(units[0]) && _validUnitsSubstance.contains(units[1])) ||
                 (_validUnitsLight.contains(units[0]) && _validUnitsLight.contains(units[1]))) && !Objects.equals(units[0], units[1]);
     }
+
+    public static double findMass(String amount) {
+        String[] split = amount.split(" ");
+        return Double.parseDouble(split[0]) /*Protons*/ * Constants.protonMass + Double.parseDouble(split[1]) /*Neutrons*/ * Constants.neutronMass;
+    }
 }

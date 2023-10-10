@@ -37,6 +37,23 @@ public class EquationList {
         return 0;
     }
 
+    public static double terminalVelocity() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        /*  EQUATION ($ = below power)
+        *
+        *   QU = 1/2 mv^2
+        *   v = Sqrt(2QU/m)
+        *   v = Sqrt(2 * constants.e * U / m$a)
+        * */
+        System.out.print("Please input the mass : ");
+        double m = isExpression(reader.readLine());
+        System.out.print("Please input the voltage : ");
+        double U = isExpression(reader.readLine());
+
+        return Math.sqrt((2 * Constants.protonCharge * U) / m);
+
+    }
+
     public static double speed(char type) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         switch (type){
@@ -105,6 +122,12 @@ public class EquationList {
         if(element.charAt(0) == 'e')
             try {
                 return HandleStack.evaluate(element.substring(2, element.length() - 1));
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        else if(element.charAt(0) == 'm')
+            try {
+                return SimpleArithmetic.findMass(element.substring(2, element.length() - 1));
             } catch (IllegalArgumentException e) {
                 System.out.println("Error: " + e.getMessage());
             }

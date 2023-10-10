@@ -24,7 +24,8 @@ public class Constants {
     /**
      * Mass of proton in Kg
      * */
-    public static final double protonMass = 6.67262 * Math.pow(10, -27);
+    public static final double protonMass = 1.67262192 * Math.pow(10, -27);
+    public static final double neutronMass = 1.6749286 * Math.pow(10, -27);
 
     /**
      * Charge of a proton in coulombs
